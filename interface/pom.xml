@@ -11,10 +11,10 @@
     <exec-maven-plugin.version>1.5.0</exec-maven-plugin.version>
     <maven-antrun-plugin.version>1.8</maven-antrun-plugin.version>
     <maven-clean-plugin.version>3.0.0</maven-clean-plugin.version>
-    <protobuf-java.version>2.5.0</protobuf-java.version>
+    <protobuf-java.version>3.4.0</protobuf-java.version>
     <protoc.bin>${project.basedir}/../cpp/thirdparty/protobuf-${protobuf-java.version}/src/protoc</protoc.bin>
     <protoc.include>${project.basedir}/../cpp/thirdparty/protobuf-${protobuf-java.version}/src</protoc.include>
-    <protoc-plugin.suffix></protoc-plugin.suffix>
+    <protoc-plugin.suffix/>
   </properties>
 
   <profiles>
@@ -48,10 +48,10 @@
               </goals>
               <configuration>
                 <target>
-                  <echo file="${project.build.directory}/protoc-gen-pbrpccpp.bat" message="@java -cp" />
-                  <echo file="${project.build.directory}/protoc-gen-pbrpccpp.bat" append="true" message=" &quot;${maven.dependency.org.xtreemfs.xtreemfs.xtreemfs-pbrpcgen.jar.path}" />
-                  <echo file="${project.build.directory}/protoc-gen-pbrpccpp.bat" append="true" message="${path.separator}${maven.dependency.com.google.protobuf.protobuf-java.jar.path}&quot;" />
-                  <echo file="${project.build.directory}/protoc-gen-pbrpccpp.bat" append="true" message=" org.xtreemfs.pbrpcgen.RPCCPPSourceGenerator${line.separator}" />
+                  <echo file="${project.build.directory}/protoc-gen-pbrpccpp.bat" message="@java -cp"/>
+                  <echo file="${project.build.directory}/protoc-gen-pbrpccpp.bat" append="true" message=" &quot;${maven.dependency.org.xtreemfs.xtreemfs.xtreemfs-pbrpcgen.jar.path}"/>
+                  <echo file="${project.build.directory}/protoc-gen-pbrpccpp.bat" append="true" message="${path.separator}${maven.dependency.com.google.protobuf.protobuf-java.jar.path}&quot;"/>
+                  <echo file="${project.build.directory}/protoc-gen-pbrpccpp.bat" append="true" message=" org.xtreemfs.pbrpcgen.RPCCPPSourceGenerator${line.separator}"/>
                 </target>
               </configuration>
             </execution>
@@ -91,13 +91,13 @@
             </goals>
             <configuration>
               <target>
-                <echo file="${project.build.directory}/protoc-gen-pbrpccpp" message="#!/bin/bash${line.separator}" />
-                <echo file="${project.build.directory}/protoc-gen-pbrpccpp" append="true" message="java -cp" />
+                <echo file="${project.build.directory}/protoc-gen-pbrpccpp" message="#!/bin/bash${line.separator}"/>
+                <echo file="${project.build.directory}/protoc-gen-pbrpccpp" append="true" message="java -cp"/>
                 <!-- ${maven.dependency.groupId.artifactId.jar.path} is only available in maven-antrun-plugin -->
-                <echo file="${project.build.directory}/protoc-gen-pbrpccpp" append="true" message=" &quot;${maven.dependency.org.xtreemfs.xtreemfs.xtreemfs-pbrpcgen.jar.path}" />
-                <echo file="${project.build.directory}/protoc-gen-pbrpccpp" append="true" message="${path.separator}${maven.dependency.com.google.protobuf.protobuf-java.jar.path}&quot;" />
-                <echo file="${project.build.directory}/protoc-gen-pbrpccpp" append="true" message=" org.xtreemfs.pbrpcgen.RPCCPPSourceGenerator${line.separator}" />
-                <chmod file="${project.build.directory}/protoc-gen-pbrpccpp" perm="a+x" />
+                <echo file="${project.build.directory}/protoc-gen-pbrpccpp" append="true" message=" &quot;${maven.dependency.org.xtreemfs.xtreemfs.xtreemfs-pbrpcgen.jar.path}"/>
+                <echo file="${project.build.directory}/protoc-gen-pbrpccpp" append="true" message="${path.separator}${maven.dependency.com.google.protobuf.protobuf-java.jar.path}&quot;"/>
+                <echo file="${project.build.directory}/protoc-gen-pbrpccpp" append="true" message=" org.xtreemfs.pbrpcgen.RPCCPPSourceGenerator${line.separator}"/>
+                <chmod file="${project.build.directory}/protoc-gen-pbrpccpp" perm="a+x"/>
               </target>
             </configuration>
           </execution>
